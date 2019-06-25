@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="{{url_for('static', filename='css/style.css')}}">
+    <title>My Page</title>
+</head>
+<body>
+    <aside>
+        <a href="/login">Entrar</a>
+        <a href="/loggout">Registrar</a>
+    </aside>
+    <main>
+        <div>
+            <h3>Tente a sorte!</h3>
+            <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quibusdam temporibus nulla necessitatibus saepe iste eos! Aliquam, consequuntur totam cum deserunt doloremque earum ea non voluptate tempore. Saepe doloremque enim dicta!</p>
+        </div>
+        <form action="/register" method="post">
+            <input type="email" name="email" placeholder="Insira seu e-mail">
+            <input type="submit" value="Cadastrar">
+        </form>
+        <div class="message"><p>{{ get_flashed_messages()[0] }}</p></div>
+    </main>
+</body>
+</html>

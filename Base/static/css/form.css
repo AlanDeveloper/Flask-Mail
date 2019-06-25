@@ -1,0 +1,50 @@
+* {
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+}
+body {
+    background-color: #c9c9c9;
+}
+main {
+    width: 400px;
+    height: 270px;
+    padding: 20px;
+    background-color: #fff;
+    margin: 150px auto;
+    box-shadow: 0 10px 6px -6px #777;
+}
+form h3{
+	background: #BF7F30;
+	text-transform: uppercase;
+	font-family: 'Open Sans Condensed', sans-serif;
+	color: #fff;
+	font-size: 18px;
+	font-weight: 100;
+	padding: 20px;
+	margin: -30px -20px 30px -20px;
+}
+main input {
+    background-color: #c9c9c9;
+    padding: 8px 10px;
+    margin: 7px 0px;
+    width: 100%;
+    border: 0px;
+}
+main input[type="submit"] {
+    cursor: pointer;
+    border: 0px;
+    width: 100px;
+    float: right;
+    padding: 10px;
+    text-decoration: none;
+    color: #fff;
+    background-color: #FFA940;
+}
+div.message {
+    color: green;
+    position: relative;
+    right: 500px;
+    margin-top: 120px;
+    color: #7D361F;
+}

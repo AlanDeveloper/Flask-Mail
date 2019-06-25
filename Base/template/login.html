@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href="{{url_for('static', filename='css/form.css')}}">
+    <title>My Page</title>
+</head>
+<body>
+    <main>
+        <form action="/login" method="post">
+            <h3>Acesse sua conta</h3>
+            <label>E-mail: </label>
+            <input type="email" name="email" value="admin@gmail.com">
+            <label>Senha: </label>
+            <input type="password" name="password" value="admin">
+            <input type="submit" value="Entrar">
+        </form>
+        <div class="message">{{ get_flashed_messages()[0] }}</div>
+    </main>
+</body>
+</html>
