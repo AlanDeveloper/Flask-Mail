@@ -1,6 +1,4 @@
 from flask import Flask, flash, render_template, request, redirect, url_for, session
-from flask_mail import Mail, Message
-from threading import Thread
 from server import ServerDAO
 
 app = Flask(__name__, template_folder='template')
@@ -38,36 +36,15 @@ def loggout():
 	session.clear()
 	return redirect(url_for('index'))
 
-def send_mail(app, msg):
-    with app.app_context():
-        mail.send(msg)
-
 @app.route('/feed', methods=['GET', 'POST'])
 def feed():
 	if request.method == 'POST':
 		result = ServerDAO().send(session['username'], request.form['message'])
 		if result:
-			recip = ServerDAO().search()
-
-			msg = Message()
-			msg.subject = 'Há uma nova publicação na página!'
-			msg.recipients = recip
-			msg.html = render_template('notification.html')
-
-			thr = Thread(target=send_mail, args=[app, msg])
-			thr.start()
+# 			
 
 		return redirect(url_for('feed'))
 	return render_template('feed.html')
 
 if __name__ == '__main__':
-	app.config['MAIL_SERVER'] = 'smtp.gmail.com'
-	app.config['MAIL_PORT'] = 465
-	app.config['MAIL_USERNAME'] = 'genicandogenerico@gmail.com'
-	app.config['MAIL_PASSWORD'] = 'adm@123abc'
-	app.config['MAIL_DEFAULT_SENDER'] = 'genicandogenerico@gmail.com'
-	app.config['MAIL_USE_TLS'] = False
-	app.config['MAIL_USE_SSL'] = True
-	mail = Mail(app)
-
 	app.run(debug=True)
